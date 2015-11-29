@@ -1,10 +1,15 @@
 package conloncon.timnhatro;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 
 public class View_Info extends AppCompatActivity {
@@ -17,7 +22,7 @@ public class View_Info extends AppCompatActivity {
         //hiển thị thông tin
         TextView display_id = (TextView) findViewById(R.id.display_id);
         display_id.setText(MainActivity.display_id);
-        TextView display_address = (TextView) findViewById(R.id.display_address);
+        final TextView display_address = (TextView) findViewById(R.id.display_address);
         display_address.setText(MainActivity.display_addrres);
         TextView display_price = (TextView) findViewById(R.id.display_price);
         display_price.setText(MainActivity.display_price);
@@ -27,6 +32,16 @@ public class View_Info extends AppCompatActivity {
         display_info.setText(MainActivity.display_info);
         TextView display_extra_info = (TextView) findViewById(R.id.display_extra_info);
         display_extra_info.setText(MainActivity.display_extra_info);
+        TextView map = (TextView) findViewById(R.id.display_map);
+        map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent geoIntent = new Intent(
+                        android.content.Intent.ACTION_VIEW, Uri
+                        .parse("geo:0,0?q=" + display_address));
+                startActivity(geoIntent);
+            }
+        });
 
         android.support.v7.app.ActionBar actionBar=getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -46,6 +61,7 @@ public class View_Info extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_search) {
+
         }
         else if (id == R.id.filter_search){
 

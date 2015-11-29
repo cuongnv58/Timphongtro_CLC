@@ -6,10 +6,11 @@
     <item
         android:id="@+id/action_search"
         android:title="@string/action_search"
-        app:showAsAction="ifRoom"
+        app:showAsAction="always"
         app:actionViewClass="android.widget.SearchView"
         android:icon="@mipmap/ic_launcher_search"/>
     <item
         android:id="@+id/filter_search"
-        android:title="Tìm kiếm nâng cao"/>
+        android:title="Tìm kiếm nâng cao"
+        app:showAsAction="never"/>
 </menu>

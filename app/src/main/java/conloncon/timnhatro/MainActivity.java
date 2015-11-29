@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity
     SharedPreferences sharePreferences;
     Button btnDangKy;
     EditText editTaiKhoanDK, editMatKhauDK, editNhapLaiMatKhauDK, editTaiKhoanDN, editMatKhauDN;
-    //protected static boolean CHECK_SIGNIN;
+    //protected boolean CHECK_SIGNIN=true;
     SQLiteDatabase database;
     Post post;
     List<BaiDang> list, list1;

@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 public class Signin extends AppCompatActivity {
 
-    public static boolean CHECK_SIGNIN;
+    public static boolean CHECK_SIGNIN=false;
     SharedPreferences sharePreferences;
     EditText username, pass;
     Button login, cancel;
