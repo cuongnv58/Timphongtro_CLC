@@ -65,7 +65,10 @@ public class MainActivity extends AppCompatActivity
         database = openOrCreateDatabase(post.DATABASE, MODE_PRIVATE, null);
         //list = database.LayDanhSachBaiDang();
         String[] column = {"id","address","square","price","info","extra_infor"};;
-
+        //String[] column = {"id","address","square","price","info","extra_infor"};;
+        String sql="";
+        sql = "CREATE TABLE IF NOT EXISTS "+ post.TABLE+ "(id TEXT, address TEXT, square TEXT ,price TEXT ,info TEXT ,extra_infor TEXT )";
+        database.execSQL(sql);
         //Lay danh sach bai dang trong co so du lieu
         Cursor c = database.query(post.TABLE, column, null, null,
                 null, null, null);
