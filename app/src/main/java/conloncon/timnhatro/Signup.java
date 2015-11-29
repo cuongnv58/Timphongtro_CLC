@@ -62,6 +62,7 @@ public class Signup extends AppCompatActivity{
                 edit.putString("MatKhau",textPass.getText().toString());
                 edit.commit();
                 Toast.makeText(Signup.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
         cancel.setOnClickListener(new View.OnClickListener() {

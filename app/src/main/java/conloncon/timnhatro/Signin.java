@@ -44,8 +44,11 @@ public class Signin extends AppCompatActivity {
                 mkdn = pass.getText().toString();
                 if(tkdn.equals(tkcf) && mkdn.equals(mkcf)){
                     Toast.makeText(getApplication(),"Đăng nhập thành công",Toast.LENGTH_LONG).show();
+                    finish();
                 }else{
                     Toast.makeText(getApplication(),"Đăng nhập không thành công",Toast.LENGTH_LONG).show();
+                    username.setText("");
+                    pass.setText("");
                 }
 
             }

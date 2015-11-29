@@ -42,6 +42,8 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        onStop();
+        onRestart();
         if (CHECK_SIGNIN) {
             setContentView(R.layout.activity_when_signin_success);
         }
@@ -85,12 +87,8 @@ public class MainActivity extends AppCompatActivity
             c.moveToNext();
         }
 
-        setAdapterListView(list);
-
-
-
-
     }
+
 
     private void setAdapterListView(List<BaiDang> list) {
         adapter = new CustomListView(this, R.layout.custom_list_view, list);

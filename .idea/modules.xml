@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Tim-Nha-Tro-master.iml" filepath="$PROJECT_DIR$/Tim-Nha-Tro-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Timphongtro_CLC-master.iml" filepath="$PROJECT_DIR$/Timphongtro_CLC-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

@@ -158,14 +158,15 @@ public class Post extends AppCompatActivity {
         post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                _address = "Địa chỉ"+address.getText().toString();
+                _address = "Địa chỉ: "+address.getText().toString();
                 _square = "Diện tích: "+square.getText().toString()+" m2";
-                _price = "Giá cho thuê "+price.getText().toString()+"/tháng";
-                _info = "Liên hệ "+info.getText().toString();
+                _price = "Giá cho thuê: "+price.getText().toString()+"/tháng";
+                _info = "Liên hệ: "+info.getText().toString();
                 _extra_info = extra_info.getText().toString();
-                _id = "Người đăng "+sharePreferences.getString("TaiKhoan", "");
+                _id = "Đăng bởi "+sharePreferences.getString("TaiKhoan", "");
                 taoCSDL();
                 doInsert();
+                finish();
 
                 /*
                 if(database!= null){

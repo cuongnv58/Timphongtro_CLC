@@ -12,9 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-/**
- * Created by dell-pc on 11/28/2015.
- */
+
+
+
 public class CustomListView extends ArrayAdapter<BaiDang>{
     Context context = null;
     int resource;
