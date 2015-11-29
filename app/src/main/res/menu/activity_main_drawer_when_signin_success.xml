@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/post"
+        android:icon="@mipmap/ic_launcher_post"
+        android:title="Đăng bài" />
+    <item android:id="@+id/post_list"
+        android:title="Quản lý bài đăng"
+        android:icon="@mipmap/ic_launcher_manage_post"/>
+    <item android:id="@+id/feedback"
+        android:icon="@mipmap/ic_launcher_feedback"
+        android:title="Góp ý" />
+    <item android:id="@+id/help"
+        android:icon="@mipmap/ic_launcher_help"
+        android:title="Trợ giúp" />
+    <item android:id="@+id/signout"
+        android:icon="@mipmap/ic_launcher_signout"
+        android:title="Đăng xuất" />
+
+</menu>

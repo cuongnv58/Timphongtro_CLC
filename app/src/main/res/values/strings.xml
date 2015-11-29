@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Tìm Nhà Trọ</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Cài đặt</string>
+    <string name="action_search">Tìm kiếm</string>
+
+    <!--String-->
+    <string name="username">Tên đăng nhập</string>
+    <string name="password">Mật khẩu</string>
+    <string name="passAgain">Nhắc lại mật khẩu</string>
+    <string name="email">Email</string>
+    <string name="phone">Số điện thoại</string>
+    <string name="price">Giá</string>
+    <string name="address">Địa chỉ</string>
+    <string name="square">Diện tích (m2)</string>
+    <string name="place">Địa điểm (quận, huyện)</string>
+    <string name="info">Thông tin liên hệ</string>
+    <string name="extra_info">Mô tả thêm</string>
+    <string name="image">Hình ảnh</string>
+
+
+    <!--Button-->
+    <string name="confirm_button">Xác nhận</string>
+    <string name="signin_button">Đăng nhập</string>
+    <string name="signup_button">Đăng ký</string>
+    <string name="search_button">Tìm kiếm</string>
+    <string name="post_button">Đăng</string>
+    <string name="cancel_button">Hủy</string>
+</resources>

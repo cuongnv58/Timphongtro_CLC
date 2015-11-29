@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/textViewUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/username"
+            android:textSize="17sp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="50dp"/>
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextUserName"
+            android:layout_below="@+id/textViewUser"
+            android:inputType="text"
+            android:layout_marginLeft="30dp"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:id="@+id/textViewPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextUserName"
+            android:text="@string/password"
+            android:textSize="17sp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"/>
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextPassword"
+            android:inputType="textPassword"
+            android:layout_below="@+id/textViewPass"
+            android:layout_marginLeft="30dp"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:id="@+id/textViewPassAgain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextPassword"
+            android:text="@string/passAgain"
+            android:textSize="17sp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"/>
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextPasswordAgain"
+            android:inputType="textPassword"
+            android:layout_below="@+id/textViewPassAgain"
+            android:layout_marginLeft="30dp"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:id="@+id/textViewEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextPasswordAgain"
+            android:text="@string/email"
+            android:textSize="17sp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"/>
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextEmail"
+            android:inputType="textPassword"
+            android:layout_below="@+id/textViewEmail"
+            android:layout_marginLeft="30dp"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:id="@+id/textViewPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextEmail"
+            android:text="@string/phone"
+            android:textSize="17sp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"/>
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextPhone"
+            android:inputType="textPassword"
+            android:layout_below="@+id/textViewPhone"
+            android:layout_marginLeft="30dp"
+            android:textColor="#000000"/>
+
+        <Button
+            android:id="@+id/button_confirm"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="@string/signup_button"
+            android:layout_below="@+id/editTextPhone"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+            android:textColor="#ffffff"
+            android:background="#3d79b5"/>
+
+        <Button
+            android:id="@+id/cancel_button"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/editTextPhone"
+            android:layout_toRightOf="@id/button_confirm"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/cancel_button"
+            android:textColor="#ffffff"
+            android:background="#3d79b5"/>
+
+    </RelativeLayout>
+
+
+</ScrollView>

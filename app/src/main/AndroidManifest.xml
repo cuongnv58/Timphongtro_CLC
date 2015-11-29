@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="conloncon.timnhatro" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Signup"
+            android:label="Đăng ký"
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Signin"
+            android:label="Đăng nhập"
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".MainActivity">
+        </activity>
+
+        <activity
+            android:name=".Post"
+            android:label="Đăng bài"
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".MainActivity">
+        </activity>
+
+        <activity
+            android:name=".Manage_Post"
+            android:label="Quản lý bài đăng"
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".MainActivity">
+        </activity>
+
+        <activity
+            android:name=".Filter_search"
+            android:label="Tìm kiếm nâng cao"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".MainActivity">
+        </activity>
+
+        <activity
+            android:name=".Help"
+            android:parentActivityName=".MainActivity"
+            android:label="Trợ giúp"
+            android:theme="@style/AppTheme">
+        </activity>
+
+        <activity
+            android:name=".Search_Result"
+            android:label="Kết quả tìm kiếm"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+    </application>
+
+</manifest>

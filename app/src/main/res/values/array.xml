@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="district">
+        <item>Đống Đa</item>
+        <item>Hoàn Kiếm</item>
+        <item>Ba Đình</item>
+        <item>Cầu Giấy</item>
+        <item>Thanh Xuân</item>
+        <item>Long Biên</item>
+        <item>Hai Bà Trưng</item>
+        <item>Hoàng Mai</item>
+        <item>Tây Hồ</item>
+        <item>Bắc Từ Liêm</item>
+        <item>Nam Từ Liêm</item>
+        <item>Hà Đông</item>
+    </string-array>
+
+    <string-array name="price">
+        <item>Dưới 1 triệu</item>
+        <item>1 - 2 triệu</item>
+        <item>2 - 3 triệu</item>
+        <item>3 - 4 triệu</item>
+        <item>Trên 4 triệu</item>
+    </string-array>
+</resources>
