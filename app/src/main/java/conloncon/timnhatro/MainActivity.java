@@ -16,10 +16,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import java.util.List;
 import java.util.ArrayList;
@@ -30,7 +32,7 @@ public class MainActivity extends AppCompatActivity
     SharedPreferences sharePreferences;
     Button btnDangKy;
     EditText editTaiKhoanDK, editMatKhauDK, editNhapLaiMatKhauDK, editTaiKhoanDN, editMatKhauDN;
-    protected static boolean CHECK_SIGNIN;
+    //protected static boolean CHECK_SIGNIN;
     SQLiteDatabase database;
     Post post;
     List<BaiDang> list;
@@ -39,12 +41,14 @@ public class MainActivity extends AppCompatActivity
     //MySimpleArrayAdapter adapter;
     public static String chuoiTimKiemKiem = "";
 
+    public static String display_id, display_addrres, display_square, display_price, display_info, display_extra_info;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         onStop();
         onRestart();
-        if (CHECK_SIGNIN) {
+        if (Signin.CHECK_SIGNIN) {
             setContentView(R.layout.activity_when_signin_success);
         }
         else {
@@ -78,15 +82,30 @@ public class MainActivity extends AppCompatActivity
         while (!c.isAfterLast()) {
             BaiDang item = new BaiDang();
             item.setId(c.getString(0));
+            display_id = item.setId(c.getString(0));
             item.setAdress(c.getString(1));
+            display_addrres = item.setId(c.getString(0));
             item.setSquare(c.getString(2));
+            display_square = item.setId(c.getString(0));
             item.setPrice(c.getString(3));
+            display_price = item.setId(c.getString(0));
             item.setInfor(c.getString(4));
+            display_info = item.setId(c.getString(0));
             item.setExtra_infor(c.getString(5));
+            display_extra_info = item.setId(c.getString(0));
             list.add(item);
             c.moveToNext();
         }
+        setAdapterListView(list);
 
+        lvHienThi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Intent intent = new Intent(MainActivity.this, View_Info.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
@@ -194,7 +213,7 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
         }
         else if (id == R.id.signout) {
-            CHECK_SIGNIN = false;
+            Signin.CHECK_SIGNIN = false;
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }

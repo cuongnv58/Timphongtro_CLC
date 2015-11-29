@@ -10,7 +10,7 @@
     <!--String-->
     <string name="username">Tên đăng nhập</string>
     <string name="password">Mật khẩu</string>
-    <string name="passAgain">Nhắc lại mật khẩu</string>
+    <string name="passAgain">Nhập lại mật khẩu</string>
     <string name="email">Email</string>
     <string name="phone">Số điện thoại</string>
     <string name="price">Giá</string>
