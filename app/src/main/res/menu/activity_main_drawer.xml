@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-        <item android:id="@+id/signup"
-            android:icon="@mipmap/ic_launcher_signup"
-            android:title="Đăng ký" />
-        <item android:id="@+id/signin"
-            android:title="Đăng nhập"
-            android:icon="@mipmap/ic_launcher_signin"/>
+    <item android:id="@+id/home"
+        android:icon="@mipmap/ic_launcher_home"
+        android:title="Bảng tin" />
+    <item android:id="@+id/signup"
+        android:icon="@mipmap/ic_launcher_signup"
+        android:title="Đăng ký" />
+    <item android:id="@+id/signin"
+        android:title="Đăng nhập"
+        android:icon="@mipmap/ic_launcher_signin"/>
     <item android:id="@+id/post"
         android:icon="@mipmap/ic_launcher_post"
         android:title="Đăng bài" />
-        <item android:id="@+id/feedback"
-            android:icon="@mipmap/ic_launcher_feedback"
-            android:title="Góp ý" />
-        <item android:id="@+id/help"
-            android:icon="@mipmap/ic_launcher_help"
-            android:title="Trợ giúp" />
+    <item android:id="@+id/feedback"
+        android:icon="@mipmap/ic_launcher_feedback"
+        android:title="Góp ý" />
+    <item android:id="@+id/help"
+        android:icon="@mipmap/ic_launcher_help"
+        android:title="Trợ giúp" />
 
 </menu>

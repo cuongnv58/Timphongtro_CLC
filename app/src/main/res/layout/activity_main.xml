@@ -20,7 +20,8 @@
             android:text="@string/headline"
             android:textColor="#000000"
             android:textSize="20sp"
-            android:layout_marginTop="80dp"/>
+            android:layout_marginTop="80dp"
+            android:layout_marginBottom="40dp"/>
 
         <ListView
             android:id="@+id/lvHienThi"

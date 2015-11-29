@@ -1,6 +1,8 @@
 package conloncon.timnhatro;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -10,11 +12,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
-public class Manage_Post extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class Manage_Post extends AppCompatActivity {
 
-    public boolean CHECK_SIGNIN = true;
+    //public boolean CHECK_SIGNIN = true;
+    List<BaiDang> list, list1;
+    ListView lvHienThi;
+    SQLiteDatabase database;
+    Post post;
+    CustomListView adapter =null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +33,43 @@ public class Manage_Post extends AppCompatActivity implements NavigationView.OnN
         setContentView(R.layout.manage_post);
 
 
+        lvHienThi = (ListView) findViewById(R.id.lvHienThi);
+        list = new ArrayList<BaiDang>();
+        list1 = new ArrayList<BaiDang>();
+        //database.doCreateDB()
+        database = openOrCreateDatabase(post.DATABASE, MODE_PRIVATE, null);
+        //list = database.LayDanhSachBaiDang();
+        String[] column = {"id","address","square","price","info","extra_infor"};;
+        //String[] column = {"id","address","square","price","info","extra_infor"};;
+        String sql="";
+        sql = "CREATE TABLE IF NOT EXISTS "+ post.TABLE+ "(id TEXT, address TEXT, square TEXT ,price TEXT ,info TEXT ,extra_infor TEXT )";
+        database.execSQL(sql);
+        //Lay danh sach bai dang trong co so du lieu
+        Cursor c = database.query(post.TABLE, column, null, null,
+                null, null, null);
+        c.moveToFirst();
+        while (!c.isAfterLast()) {
+            BaiDang item = new BaiDang();
+            item.setId(c.getString(0));
+            item.setAdress(c.getString(1));
+            item.setSquare(c.getString(2));
+            item.setPrice(c.getString(3));
+            item.setInfor(c.getString(4));
+            item.setExtra_infor(c.getString(5));
+            list.add(item);
+            c.moveToNext();
+        }
+        setAdapterListView(list);
+
+
         android.support.v7.app.ActionBar actionBar=getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+    }
+
+    private void setAdapterListView(List<BaiDang> list) {
+        adapter = new CustomListView(this, R.layout.custom_list_view, list);
+        lvHienThi.setAdapter(adapter);
+
     }
 
 
@@ -46,32 +92,6 @@ public class Manage_Post extends AppCompatActivity implements NavigationView.OnN
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
 
-        int id = item.getItemId();
 
-        if (id == R.id.feedback) {
-
-        }
-        else if (id == R.id.help){
-
-        }
-        else if (id == R.id.post) {
-            Intent intent = new Intent(this, Post.class);
-            startActivity(intent);
-        }
-        else if (id == R.id.post_list) {
-
-        }
-        else if (id == R.id.signout) {
-            CHECK_SIGNIN = false;
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-        }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
 }

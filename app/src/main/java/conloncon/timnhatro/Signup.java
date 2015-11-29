@@ -93,16 +93,20 @@ public class Signup extends AppCompatActivity{
         }
         return super.onOptionsItemSelected(item);
     }
+
+
     private boolean checkNull(String str){
         if (str.length() == 0) return false;
         return true;
     }
+
     private boolean checkEmail(String email){
         for (int i = 0; i < email.length(); i++){
             if (email.charAt(i) == '@') return true;
         }
         return false;
     }
+
     private  boolean checkPhone(String phone){
         if (!checkNull(phone)) return false;
         for (int i = 0; i < phone.length(); i++){
@@ -111,10 +115,12 @@ public class Signup extends AppCompatActivity{
         }
         return true;
     }
+
     private boolean checkPass(String pass, String passAgain){
         if (pass.equals(passAgain)) return true;
         return false;
     }
+
     private boolean checkUserName(String username){
         String tkcf = sharePreferences.getString("TaiKhoan", "");
         if (username.equals(tkcf)) return false;

@@ -47,8 +47,6 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        onStop();
-        onRestart();
         if (Signin.CHECK_SIGNIN) {
             setContentView(R.layout.activity_when_signin_success);
         }
@@ -221,6 +219,10 @@ public class MainActivity extends AppCompatActivity
         }
         else if (id == R.id.signout) {
             Signin.CHECK_SIGNIN = false;
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
+        else if (id == R.id.home){
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
