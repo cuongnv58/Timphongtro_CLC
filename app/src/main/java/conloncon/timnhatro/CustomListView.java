@@ -64,18 +64,18 @@ public class CustomListView extends ArrayAdapter<BaiDang>{
         holder.tvPrice.setText(item.getPrice().toString());
         holder.tvInfor.setText(item.getInfor().toString());
         holder.tvExtra_Infor.setText(item.getExtra_infor().toString());
-
-        if(MainActivity.chuoiTimKiemKiem != null){
+        /*
+        if(MainActivity.chuoiTimKiem != null){
             SpannableString textSpan = new SpannableString(item.getAdress());
 
-            int vitribatdau = LayViTriBatDau(item.getAdress(), MainActivity.chuoiTimKiemKiem);
-            int vitriketthuc = MainActivity.chuoiTimKiemKiem.length();
+            int vitribatdau = LayViTriBatDau(item.getAdress(), MainActivity.chuoiTimKiem);
+            int vitriketthuc = MainActivity.chuoiTimKiem.length();
             textSpan.setSpan(new BackgroundColorSpan(Color.RED), vitribatdau, vitribatdau + vitriketthuc, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE);
             holder.tvAdress.setText(textSpan);
         }else{
             holder.tvAdress.setText(item.getAdress());
         }
-
+        */
 
 
 //		View view = View.inflate(context, resource, null);

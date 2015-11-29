@@ -30,7 +30,7 @@ public class Post extends AppCompatActivity {
     Button post, cancel;
     String _address,_square,_price,_info,_extra_info,_id;
     public static final String TABLE = "postTable1";
-    public static final String DATABASE = "timphongtro.db";
+    public static final String DATABASE = "timphongtro1.db";
     SharedPreferences sharePreferences;
     SQLiteDatabase database;
 
@@ -103,11 +103,6 @@ public class Post extends AppCompatActivity {
         List<BaiDang> list = new ArrayList<BaiDang>();
 
         String[] column = {"id","address","square","price","info","extra_infor"};
-        //id TEXT, address TEXT, square TEXT ,price TEXT ,info TEXT ,extra_infor TEXT
-        // Cursor c = db.query(DatabaseHelper.TABLE_SONG, column, null, null,
-        // null, null, null);
-
-        // select _id , song_name , song_name2 , song_lyric From song where song_name2 like '% tenbaihat %'
         String truyvan = "Select " + column[0] + " , " + column[1] + " , "
                 + column[2] + " , "+ column[3]+ " , " + column[4] + "," + column[5]+  " From "
                 + TABLE + " Where address LIKE '%" + tenbaihat.toLowerCase() + "%'";

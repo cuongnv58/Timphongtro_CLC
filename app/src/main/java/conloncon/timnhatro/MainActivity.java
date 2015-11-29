@@ -1,5 +1,5 @@
 package conloncon.timnhatro;
-
+import android.util.Log;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.List;
@@ -28,18 +29,18 @@ import java.util.ArrayList;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.AdapterView;
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, SearchView.OnQueryTextListener { //doan nay nho cai ONQueryListenner
     SharedPreferences sharePreferences;
     Button btnDangKy;
     EditText editTaiKhoanDK, editMatKhauDK, editNhapLaiMatKhauDK, editTaiKhoanDN, editMatKhauDN;
     //protected static boolean CHECK_SIGNIN;
     SQLiteDatabase database;
     Post post;
-    List<BaiDang> list;
+    List<BaiDang> list, list1;
     ListView lvHienThi;
     CustomListView adapter =null;
     //MySimpleArrayAdapter adapter;
-    public static String chuoiTimKiemKiem = "";
+    public static String chuoiTimKiem = "";
 
     public static String display_id, display_addrres, display_square, display_price, display_info, display_extra_info;
 
@@ -67,7 +68,8 @@ public class MainActivity extends AppCompatActivity
 
         lvHienThi = (ListView) findViewById(R.id.lvHienThi);
         list = new ArrayList<BaiDang>();
-        //database.doCreateDB();
+        list1 = new ArrayList<BaiDang>();
+        //database.doCreateDB()
         database = openOrCreateDatabase(post.DATABASE, MODE_PRIVATE, null);
         //list = database.LayDanhSachBaiDang();
         String[] column = {"id","address","square","price","info","extra_infor"};;
@@ -82,17 +84,17 @@ public class MainActivity extends AppCompatActivity
         while (!c.isAfterLast()) {
             BaiDang item = new BaiDang();
             item.setId(c.getString(0));
-            display_id = item.setId(c.getString(0));
+            display_id = item.getId();
             item.setAdress(c.getString(1));
-            display_addrres = item.setAdress(c.getString(1));
+            display_addrres = item.getAdress();
             item.setSquare(c.getString(2));
-            display_square = item.setSquare(c.getString(2));
+            display_square = item.getSquare();
             item.setPrice(c.getString(3));
-            display_price = item.setPrice(c.getString(3));
+            display_price = item.getPrice();
             item.setInfor(c.getString(4));
-            display_info = item.setInfor(c.getString(4));
+            display_info = item.getInfor();
             item.setExtra_infor(c.getString(5));
-            display_extra_info = item.setExtra_infor(c.getString(5));
+            display_extra_info = item.getExtra_infor();
             list.add(item);
             c.moveToNext();
         }
@@ -128,10 +130,14 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+        /*
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main, menu);
-
-
+        inflater.inflate(R.menu.main, menu);//tam thoi bo di
+        */
+        getMenuInflater().inflate(R.menu.main, menu);
+        MenuItem item = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) item.getActionView();
+        searchView.setOnQueryTextListener(this);
 
         return true;
     }
@@ -141,6 +147,7 @@ public class MainActivity extends AppCompatActivity
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+        /*
         int id = item.getItemId();
 
         if (id == R.id.action_search) {
@@ -149,7 +156,7 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(this, Filter_search.class);
             startActivity(intent);
         }
-
+        */   //tam thoi bo
         return super.onOptionsItemSelected(item);
     }
 
@@ -223,4 +230,53 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String chuoi) {
+        //List<BaiDang> list1;
+        //list = database.LayDanhSachBaiDang();
+        list1 = new ArrayList<BaiDang>();
+        database = openOrCreateDatabase(post.DATABASE, MODE_PRIVATE, null);
+        //list = database.LayDanhSachBaiDang();
+        String[] column = {"id","address","square","price","info","extra_infor"};;
+        //String[] column = {"id","address","square","price","info","extra_infor"};;
+        String sql="";
+        sql = "CREATE TABLE IF NOT EXISTS "+ post.TABLE+ "(id TEXT, address TEXT, square TEXT ,price TEXT ,info TEXT ,extra_infor TEXT )";
+        database.execSQL(sql);
+
+        //String[] column = {"id","address","square","price","info","extra_infor"};;
+        //String[] column = {"id","address","square","price","info","extra_infor"};;
+        //String[] column = {"id","address","square","price","info","extra_infor"};
+        String truyvan = "Select " + column[0] + " , " + column[1] + " , "
+                + column[2] + " , "+ column[3]+ " , " + column[4] + "," + column[5]+  " From "
+                + post.TABLE + " Where address LIKE '%" + chuoi.toLowerCase() + "%'";
+        Cursor c = database.rawQuery(truyvan, null);
+        c.moveToFirst();
+        while (!c.isAfterLast()) {
+            //BaiDang item = new BaiDang();
+            BaiDang item = new BaiDang();
+            item.setId(c.getString(0));
+            display_id = item.getId();
+            item.setAdress(c.getString(1));
+            display_addrres = item.getAdress();
+            item.setSquare(c.getString(2));
+            display_square = item.getSquare();
+            item.setPrice(c.getString(3));
+            display_price = item.getPrice();
+            item.setInfor(c.getString(4));
+            display_info = item.getInfor();
+            item.setExtra_infor(c.getString(5));
+            display_extra_info = item.getExtra_infor();
+            list1.add(item);
+            c.moveToNext();
+        }
+        setAdapterListView(list1);
+        adapter.notifyDataSetChanged();
+        chuoiTimKiem = chuoi;
+        return true;
+    }
 }
