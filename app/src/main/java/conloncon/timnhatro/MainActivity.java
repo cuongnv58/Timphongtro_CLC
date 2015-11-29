@@ -84,15 +84,15 @@ public class MainActivity extends AppCompatActivity
             item.setId(c.getString(0));
             display_id = item.setId(c.getString(0));
             item.setAdress(c.getString(1));
-            display_addrres = item.setId(c.getString(0));
+            display_addrres = item.setAdress(c.getString(1));
             item.setSquare(c.getString(2));
-            display_square = item.setId(c.getString(0));
+            display_square = item.setSquare(c.getString(2));
             item.setPrice(c.getString(3));
-            display_price = item.setId(c.getString(0));
+            display_price = item.setPrice(c.getString(3));
             item.setInfor(c.getString(4));
-            display_info = item.setId(c.getString(0));
+            display_info = item.setInfor(c.getString(4));
             item.setExtra_infor(c.getString(5));
-            display_extra_info = item.setId(c.getString(0));
+            display_extra_info = item.setExtra_infor(c.getString(5));
             list.add(item);
             c.moveToNext();
         }
