@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity
         list1 = new ArrayList<BaiDang>();
         //database.doCreateDB()
         database = openOrCreateDatabase(post.DATABASE, MODE_PRIVATE, null);
-        //list = database.LayDanhSachBaiDang();
+//        list = database.LayDanhSachBaiDang();
         String[] column = {"id","address","square","price","info","extra_infor"};;
         //String[] column = {"id","address","square","price","info","extra_infor"};;
         String sql="";
@@ -109,9 +109,8 @@ public class MainActivity extends AppCompatActivity
                 Intent intent = new Intent(MainActivity.this, View_Info.class);
                 startActivity(intent);
             }
-        }); // no bao loi o day by Duc ANh =))
+        });
     }
-
 
     private void setAdapterListView(List<BaiDang> list) {
         adapter = new CustomListView(this, R.layout.custom_list_view, list);
