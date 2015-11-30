@@ -10,9 +10,6 @@
     <item android:id="@+id/signin"
         android:title="Đăng nhập"
         android:icon="@mipmap/ic_launcher_signin"/>
-    <item android:id="@+id/post"
-        android:icon="@mipmap/ic_launcher_post"
-        android:title="Đăng bài" />
     <item android:id="@+id/feedback"
         android:icon="@mipmap/ic_launcher_feedback"
         android:title="Góp ý" />

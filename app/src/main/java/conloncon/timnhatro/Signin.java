@@ -45,12 +45,14 @@ public class Signin extends AppCompatActivity {
                 tkdn = username.getText().toString();
                 mkdn = pass.getText().toString();
                 if(tkdn.equals(tkcf) && mkdn.equals(mkcf)){
-                    Toast.makeText(getApplication(),"Đăng nhập thành công",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplication(),"Đăng nhập thành công ",Toast.LENGTH_SHORT).show();
+                    Intent sgintent = getIntent();
                     CHECK_SIGNIN = true;
-                    Intent intent = getIntent();
-                    intent.putExtra("isLogin", CHECK_SIGNIN);
-                    setResult(RESULT_OK, intent);
+                    sgintent.putExtra("isLogin", CHECK_SIGNIN);
+                    setResult(RESULT_OK, sgintent);
                     finish();
+                    Intent intent2 = new Intent(Signin.this, MainActivity.class);
+                    startActivity(intent2);
                 }else{
                     Toast.makeText(getApplication(),"Đăng nhập không thành công",Toast.LENGTH_SHORT).show();
                     username.setText("");

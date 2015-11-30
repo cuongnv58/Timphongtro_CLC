@@ -157,7 +157,7 @@ public class Post extends AppCompatActivity {
                 _square = "Diện tích: "+square.getText().toString()+" m2";
                 _price = "Giá cho thuê: "+price.getText().toString()+"/tháng";
                 _info = "Liên hệ: "+info.getText().toString();
-                _extra_info = extra_info.getText().toString();
+                _extra_info = "Thông tin thêm: "+ extra_info.getText().toString();
                 _id = "Đăng bởi "+sharePreferences.getString("TaiKhoan", "");
                 taoCSDL();
                 doInsert();

@@ -74,16 +74,10 @@
         </activity>
 
         <activity
-            android:name=".Search_Result"
-            android:label="Kết quả tìm kiếm"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait">
-        </activity>
-
-        <activity
             android:name=".View_Info"
             android:label="Thông tin phòng trọ"
             android:theme="@style/AppTheme"
+            android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait">
         </activity>
 

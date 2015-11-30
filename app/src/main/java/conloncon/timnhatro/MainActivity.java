@@ -1,4 +1,5 @@
 package conloncon.timnhatro;
+
 import android.util.Log;
 import android.content.Context;
 import android.content.Intent;
@@ -28,6 +29,7 @@ import java.util.List;
 import java.util.ArrayList;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.AdapterView;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, SearchView.OnQueryTextListener { //doan nay nho cai ONQueryListenner
     SharedPreferences sharePreferences;
@@ -43,6 +45,8 @@ public class MainActivity extends AppCompatActivity
     public static String chuoiTimKiem = "";
 
     public static String display_id, display_addrres, display_square, display_price, display_info, display_extra_info;
+    static private final int GET_TEXT_REQUEST_CODE = 1;
+    static private final String TAG = "PhongtroCLC";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +100,7 @@ public class MainActivity extends AppCompatActivity
             list.add(item);
             c.moveToNext();
         }
-        setAdapterListView(list);
+        /*setAdapterListView(list);
 
         lvHienThi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -105,7 +109,7 @@ public class MainActivity extends AppCompatActivity
                 Intent intent = new Intent(MainActivity.this, View_Info.class);
                 startActivity(intent);
             }
-        });
+        });*/ // no bao loi o day by Duc ANh =))
     }
 
 
@@ -165,11 +169,11 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.signup) {
-            String taikhoan, matkhau;
+            /*String taikhoan, matkhau;
             taikhoan = sharePreferences.getString("TaiKhoan", "");
             matkhau = sharePreferences.getString("MatKhau","");
-            if(taikhoan.trim().length() == 0 || matkhau.trim().length() == 0) {
-                Intent intent = new Intent(this, Signup.class);
+            if(taikhoan.trim().length() == 0 || matkhau.trim().length() == 0) {*/
+            Intent intent = new Intent(this, Signup.class);
 
 
               /*  btnDangKy.setOnClickListener(new View.OnClickListener() {
@@ -189,13 +193,13 @@ public class MainActivity extends AppCompatActivity
                         }
                     }
                 });*/
-                startActivity(intent);
-            }else
-                Toast.makeText(getApplicationContext(),"Bạn đã có tài khoản rồi", Toast.LENGTH_LONG).show();
+            startActivity(intent);
+            /*}else
+                Toast.makeText(getApplicationContext(),"Bạn đã có tài khoản rồi", Toast.LENGTH_LONG).show();*/
         }
         else if (id == R.id.signin) {
             Intent intent = new Intent( this, Signin.class);
-            startActivity(intent);
+            startActivityForResult(intent,GET_TEXT_REQUEST_CODE);
         }
         else if (id == R.id.feedback) {
             try {
@@ -280,5 +284,19 @@ public class MainActivity extends AppCompatActivity
         adapter.notifyDataSetChanged();
         chuoiTimKiem = chuoi;
         return true;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        Log.i(TAG, "Entered onActivityResult()");
+        // TODO - Process the result only if this method received both a
+        // RESULT_OK result code and a recognized request code
+        // If so, update the Textview showing the user-entered text.
+        if(requestCode==GET_TEXT_REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                data.getBooleanExtra("isLogin",Signin.CHECK_SIGNIN);
+            }
+        }
     }
 }
