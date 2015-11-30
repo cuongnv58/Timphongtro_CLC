@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity
             list.add(item);
             c.moveToNext();
         }
-        /*setAdapterListView(list);
+        setAdapterListView(list);
 
         lvHienThi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity
                 Intent intent = new Intent(MainActivity.this, View_Info.class);
                 startActivity(intent);
             }
-        });*/ // no bao loi o day by Duc ANh =))
+        }); // no bao loi o day by Duc ANh =))
     }
 
 
