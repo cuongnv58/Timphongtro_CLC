@@ -97,6 +97,16 @@
                 android:layout_marginTop="15dp"
                 android:layout_toRightOf="@+id/textusername"
                 />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textStyle="italic"
+                android:text=""
+                android:id="@+id/texttime"
+                android:textAlignment="center"
+                android:layout_marginTop="40dp"
+                android:layout_toRightOf="@+id/textCmt"
+                />
         </RelativeLayout>
         <LinearLayout
             android:gravity="top"

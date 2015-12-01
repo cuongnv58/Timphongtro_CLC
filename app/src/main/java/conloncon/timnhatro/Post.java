@@ -94,7 +94,7 @@ public class Post extends AppCompatActivity {
                 msg="Failed";
             }
             else{
-                msg= _id + "-"+ _address+"-"+_square+"-"+_price+"-"+_info+"-"+_extra_info;
+                msg="Bạn đã đăng bài thành công !";
         }
 
         Toast.makeText(Post.this,msg,Toast.LENGTH_LONG).show();
@@ -161,8 +161,11 @@ public class Post extends AppCompatActivity {
                 _id = "Đăng bởi "+sharePreferences.getString("TaiKhoan", "");
                 taoCSDL();
                 doInsert();
-                finish();
-
+                address.setText("");
+                square.setText("");
+                price.setText("");
+                info.setText("");
+                extra_info.setText("");
                 /*
                 if(database!= null){
                     Toast toast = Toast.makeText(Post.this, "OK da them du lieu thanh cong", Toast.LENGTH_LONG);
