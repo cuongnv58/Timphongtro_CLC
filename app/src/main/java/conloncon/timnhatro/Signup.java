@@ -25,14 +25,7 @@ public class Signup extends AppCompatActivity{
         textPassAgain = (EditText) findViewById(R.id.editTextPasswordAgain);
         textEmail = (EditText) findViewById(R.id.editTextEmail);
         textPhone = (EditText) findViewById(R.id.editTextPhone);
-        /*confirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            }
-        });*/
-        String taikhoan, matkhau;
-        taikhoan = sharePreferences.getString("TaiKhoan", "");
-        matkhau = sharePreferences.getString("MatKhau","");
+
         //control button
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,26 +33,32 @@ public class Signup extends AppCompatActivity{
                 //Kiểm tra tên ĐN, email, sđt, pass
                 if (!checkNull(textUser.getText().toString())){
                     Toast.makeText(Signup.this, "Chưa có Tên Đăng Nhập", Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 if (!checkNull(textPass.getText().toString())){
                     Toast.makeText(Signup.this, "Chưa có Mật Khẩu", Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 if (!checkEmail(textEmail.getText().toString())){
                     Toast.makeText(Signup.this, "Email không hợp lệ", Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 if (!checkPhone(textPhone.getText().toString())) {
                     Toast.makeText(Signup.this, "Số điện thoại không hợp lệ", Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 if (!checkPass(textPass.getText().toString(), textPassAgain.getText().toString())){
                     Toast.makeText(Signup.this, "Mật khẩu chưa khớp", Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 if (!checkUserName(textUser.getText().toString())){
                     Toast.makeText(Signup.this, "Tên Đăng Nhập đã tồn tại", Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 //nạp vào CSDL
                 SharedPreferences.Editor edit = sharePreferences.edit();
-                edit.putString("TaiKhoan",textUser.getText().toString());
-                edit.putString("MatKhau",textPass.getText().toString());
+                edit.putString("TK"+textUser.getText().toString(), textUser.getText().toString());
+                edit.putString("MK"+textUser.getText().toString(), textPass.getText().toString());
                 edit.commit();
                 Toast.makeText(Signup.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
                 finish();
@@ -122,7 +121,7 @@ public class Signup extends AppCompatActivity{
     }
 
     private boolean checkUserName(String username){
-        String tkcf = sharePreferences.getString("TaiKhoan", "");
+        String tkcf = sharePreferences.getString("TK"+username, "");
         if (username.equals(tkcf)) return false;
         return true;
     }

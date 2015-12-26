@@ -1,28 +1,17 @@
 package conloncon.timnhatro;
 
-import android.app.Activity;
 import android.content.ContentValues;
-import android.content.Intent;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
-import android.database.Cursor;
-import android.content.Context;
-import android.content.SharedPreferences;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Post extends AppCompatActivity {
 
@@ -38,7 +27,7 @@ public class Post extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.post);
-        sharePreferences =getSharedPreferences("config",Context.MODE_PRIVATE);
+        sharePreferences = getSharedPreferences("config",Context.MODE_PRIVATE);
         connectView();
     }
 
@@ -61,7 +50,9 @@ public class Post extends AppCompatActivity {
 
 
     }
-    public boolean isTableExists(SQLiteDatabase database, String tableName) {
+
+   /*
+   public boolean isTableExists(SQLiteDatabase database, String tableName) {
         Cursor cursor = database.rawQuery("select DISTINCT tbl_name from sqlite_master where tbl_name = '"+tableName+"'", null);
         if(cursor!=null) {
             if(cursor.getCount()>0) {
@@ -72,7 +63,7 @@ public class Post extends AppCompatActivity {
         }
         return false;
     }
-
+    */
 
     public void taoCSDL(){
         doCreateDB();
@@ -99,6 +90,8 @@ public class Post extends AppCompatActivity {
 
         Toast.makeText(Post.this,msg,Toast.LENGTH_LONG).show();
     }
+
+    /*
     public List<BaiDang> LayDanhSachTheoTuKhoa(String tenbaihat) {
         List<BaiDang> list = new ArrayList<BaiDang>();
 
@@ -121,6 +114,9 @@ public class Post extends AppCompatActivity {
         }
         return list;
     }
+    */
+
+    /*
     public List<BaiDang> LayDanhSachBaiDang() {
         List<BaiDang> list = new ArrayList<BaiDang>();
         String[] column = {"id","address","square","price","info","extra_infor"};;
@@ -140,6 +136,8 @@ public class Post extends AppCompatActivity {
         }
         return list;
     }
+    */
+
     public void connectView(){
         post = (Button) findViewById(R.id.post_button);
         cancel = (Button) findViewById(R.id.cancel_button);
@@ -155,10 +153,10 @@ public class Post extends AppCompatActivity {
             public void onClick(View v) {
                 _address = "Địa chỉ: "+address.getText().toString();
                 _square = "Diện tích: "+square.getText().toString()+" m2";
-                _price = "Giá cho thuê: "+price.getText().toString()+"/tháng";
+                _price = "Giá cho thuê: "+price.getText().toString()+"triệu/tháng";
                 _info = "Liên hệ: "+info.getText().toString();
                 _extra_info = "Thông tin thêm: "+ extra_info.getText().toString();
-                _id = "Đăng bởi "+sharePreferences.getString("TaiKhoan", "");
+                _id = "Đăng bởi "+sharePreferences.getString("id_now", "");
                 taoCSDL();
                 doInsert();
                 finish();

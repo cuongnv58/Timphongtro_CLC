@@ -1,6 +1,5 @@
 package conloncon.timnhatro;
 
-import android.util.Log;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,21 +13,18 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.TextView;
-import android.widget.Toast;
-import java.util.List;
+
 import java.util.ArrayList;
-import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.AdapterView;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, SearchView.OnQueryTextListener { //doan nay nho cai ONQueryListenner
@@ -97,7 +93,7 @@ public class MainActivity extends AppCompatActivity
             display_info = item.getInfor();
             item.setExtra_infor(c.getString(5));
             display_extra_info = item.getExtra_infor();
-            list.add(item);
+            list.add(0, item);
             c.moveToNext();
         }
         setAdapterListView(list);
@@ -105,7 +101,13 @@ public class MainActivity extends AppCompatActivity
         lvHienThi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                BaiDang item = list.get(position);
+                display_id = item.getId();
+                display_addrres = item.getAdress();
+                display_square = item.getSquare();
+                display_price = item.getPrice();
+                display_info = item.getInfor();
+                display_extra_info = item.getExtra_infor();
                 Intent intent = new Intent(MainActivity.this, View_Info.class);
                 startActivity(intent);
             }

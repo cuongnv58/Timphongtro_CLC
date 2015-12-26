@@ -62,7 +62,7 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:id="@+id/editTextPrice"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:layout_below="@+id/textViewPrice"
             android:layout_marginLeft="30dp"
             android:textColor="#000000"/>

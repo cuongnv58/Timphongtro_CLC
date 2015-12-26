@@ -26,25 +26,26 @@ public class Signin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signin);
         sharePreferences = getSharedPreferences("config", Context.MODE_PRIVATE);
-        String taikhoan, matkhau;
-        taikhoan = sharePreferences.getString("TaiKhoan", "");
-        matkhau = sharePreferences.getString("MatKhau", "");
 
         username = (EditText) findViewById(R.id.editTextUserName);
         pass = (EditText) findViewById(R.id.editTextPassword);
         login = (Button) findViewById(R.id.button_login);
         cancel = (Button) findViewById(R.id.cancel_button);
 
-
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String mkcf,tkcf,mkdn, tkdn;
-                mkcf = sharePreferences.getString("MatKhau","");
-                tkcf = sharePreferences.getString("TaiKhoan", "");
                 tkdn = username.getText().toString();
                 mkdn = pass.getText().toString();
+
+                tkcf = sharePreferences.getString("TK" + tkdn, "");
+                mkcf = sharePreferences.getString("MK" + tkdn, "");
+
                 if(tkdn.equals(tkcf) && mkdn.equals(mkcf)){
+                    SharedPreferences.Editor edit = sharePreferences.edit();
+                    edit.putString("id_now", tkdn);
+                    edit.commit();
                     Toast.makeText(getApplication(),"Đăng nhập thành công ",Toast.LENGTH_SHORT).show();
                     Intent sgintent = getIntent();
                     CHECK_SIGNIN = true;
@@ -53,7 +54,7 @@ public class Signin extends AppCompatActivity {
                     finish();
                     Intent intent2 = new Intent(Signin.this, MainActivity.class);
                     startActivity(intent2);
-                }else{
+                } else {
                     Toast.makeText(getApplication(),"Đăng nhập không thành công",Toast.LENGTH_SHORT).show();
                     username.setText("");
                     pass.setText("");

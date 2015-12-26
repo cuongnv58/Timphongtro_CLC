@@ -13,7 +13,7 @@
     <string name="passAgain">Nhập lại mật khẩu</string>
     <string name="email">Email</string>
     <string name="phone">Số điện thoại</string>
-    <string name="price">Giá</string>
+    <string name="price">Giá (triệu VNĐ)</string>
     <string name="address">Địa chỉ</string>
     <string name="square">Diện tích (m2)</string>
     <string name="place">Địa điểm (quận, huyện)</string>

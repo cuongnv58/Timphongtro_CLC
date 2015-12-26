@@ -1,6 +1,5 @@
 package conloncon.timnhatro;
 
-import android.util.Log;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,24 +14,20 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.TextView;
-import android.widget.Toast;
-import java.util.List;
+
 import java.util.ArrayList;
-import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.AdapterView;
+import java.util.List;
 
 
 
-public class Home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, SearchView.OnQueryTextListener {
+public class
+
+        Home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, SearchView.OnQueryTextListener {
 
 
     SharedPreferences sharePreferences;
@@ -164,6 +159,14 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
 
+        //Chào bạn @id_now
+        EditText username;
+        username = (EditText) findViewById(R.id.textView);
+        sharePreferences = getSharedPreferences("config", Context.MODE_PRIVATE);
+
+        String idNow = sharePreferences.getString("id_now", "");
+        username.setText(idNow);
+
         int id = item.getItemId();
 
         if (id == R.id.signup) {
@@ -220,6 +223,9 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             startActivity(intent);
         }
         else if (id == R.id.signout) {
+            SharedPreferences.Editor edit = sharePreferences.edit();
+            edit.putString("id_now", "");
+            edit.commit();
             Signin.CHECK_SIGNIN = false;
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
