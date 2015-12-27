@@ -82,26 +82,22 @@ public class MainActivity extends AppCompatActivity
         while (!c.isAfterLast()) {
             BaiDang item = new BaiDang();
             item.setId(c.getString(0));
-            display_id = item.getId();
             item.setAdress(c.getString(1));
-            display_addrres = item.getAdress();
             item.setSquare(c.getString(2));
-            display_square = item.getSquare();
             item.setPrice(c.getString(3));
-            display_price = item.getPrice();
             item.setInfor(c.getString(4));
-            display_info = item.getInfor();
             item.setExtra_infor(c.getString(5));
-            display_extra_info = item.getExtra_infor();
             list.add(0, item);
+            list1 = list;
             c.moveToNext();
         }
         setAdapterListView(list);
+        adapter.notifyDataSetChanged();
 
         lvHienThi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                BaiDang item = list.get(position);
+                BaiDang item = list1.get(position);
                 display_id = item.getId();
                 display_addrres = item.getAdress();
                 display_square = item.getSquare();
@@ -267,18 +263,12 @@ public class MainActivity extends AppCompatActivity
             //BaiDang item = new BaiDang();
             BaiDang item = new BaiDang();
             item.setId(c.getString(0));
-            display_id = item.getId();
             item.setAdress(c.getString(1));
-            display_addrres = item.getAdress();
             item.setSquare(c.getString(2));
-            display_square = item.getSquare();
             item.setPrice(c.getString(3));
-            display_price = item.getPrice();
             item.setInfor(c.getString(4));
-            display_info = item.getInfor();
             item.setExtra_infor(c.getString(5));
-            display_extra_info = item.getExtra_infor();
-            list1.add(item);
+            list1.add(0, item);
             c.moveToNext();
         }
         setAdapterListView(list1);

@@ -26,12 +26,9 @@
         android:layout_marginLeft="100dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
-<<<<<<< HEAD
     <TextView android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
         android:id="@+id/textView" />
 
-=======
->>>>>>> fcafbe3c69f15d10f7b5dd56025f253210274290
 </LinearLayout>

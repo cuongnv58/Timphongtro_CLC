@@ -153,10 +153,10 @@ public class Post extends AppCompatActivity {
             public void onClick(View v) {
                 _address = "Địa chỉ: "+address.getText().toString();
                 _square = "Diện tích: "+square.getText().toString()+" m2";
-                _price = "Giá cho thuê: "+price.getText().toString()+"triệu/tháng";
+                _price = "Giá cho thuê: "+price.getText().toString()+" triệu/tháng";
                 _info = "Liên hệ: "+info.getText().toString();
                 _extra_info = "Thông tin thêm: "+ extra_info.getText().toString();
-                _id = "Đăng bởi "+sharePreferences.getString("id_now", "");
+                _id = "Đăng bởi "+ sharePreferences.getString("id_now", "");
                 taoCSDL();
                 doInsert();
                 address.setText("");
