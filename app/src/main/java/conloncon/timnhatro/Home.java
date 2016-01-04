@@ -166,12 +166,11 @@ public class
     public boolean onNavigationItemSelected(MenuItem item) {
 
         //Chào bạn @id_now
-        EditText username;
-        username = (EditText) findViewById(R.id.textView);
+        /*EditText username = (EditText) findViewById(R.id.textView) ;
         sharePreferences = getSharedPreferences("config", Context.MODE_PRIVATE);
 
         String idNow = sharePreferences.getString("id_now", "");
-        username.setText(idNow);
+        username.setText(idNow);*/
 
         int id = item.getItemId();
 
