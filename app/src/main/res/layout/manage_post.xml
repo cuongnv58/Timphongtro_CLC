@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Danh sách các bài đã đăng"
+            android:text="Danh sách các bài đã đăng - CLICK vào một bài để xóa"
             android:textColor="#000000"
             android:textSize="18sp"
             android:layout_marginTop="50dp"
@@ -34,11 +34,7 @@
                 android:layout_weight="1">
             </ListView>
 
-            <ImageButton
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="7"
-                android:src="@mipmap/ic_launcher_del"/>
+
 
         </LinearLayout>
     </LinearLayout>

@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textusername"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:layout_marginTop="15dp"
+            android:textSize="16dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:text="Chưa có bình luận nào"
+            android:id="@+id/textCmt"
+            android:textAlignment="center"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/textusername"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textStyle="italic"
+            android:text=""
+            android:id="@+id/texttime"
+            android:textAlignment="center"
+            android:layout_marginTop="40dp"
+            android:layout_toRightOf="@+id/textCmt"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>

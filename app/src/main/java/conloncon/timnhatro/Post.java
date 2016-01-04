@@ -37,7 +37,8 @@ public class Post extends AppCompatActivity {
     }
     public void doCreateTable(){
         String sql="";
-        sql = "CREATE TABLE IF NOT EXISTS "+ TABLE+ "(id TEXT, address TEXT, square TEXT ,price TEXT ,info TEXT ,extra_infor TEXT )";
+        sql = "CREATE TABLE IF NOT EXISTS "+ TABLE+
+                "(id TEXT, address TEXT, square TEXT ,price TEXT ,info TEXT ,extra_infor TEXT)";
         database.execSQL(sql);
         /*
         if(isTableExists(database,"pos")== true){
