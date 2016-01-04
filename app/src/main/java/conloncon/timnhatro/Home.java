@@ -49,7 +49,13 @@ public class
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_when_signin_success);
+        //setContentView(R.layout.activity_when_signin_success);
+         if (Signin.CHECK_SIGNIN) {
+            setContentView(R.layout.activity_when_signin_success);
+        }
+        else {
+            setContentView(R.layout.activity_main);
+        }
         sharePreferences = getSharedPreferences("config", Context.MODE_PRIVATE);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
